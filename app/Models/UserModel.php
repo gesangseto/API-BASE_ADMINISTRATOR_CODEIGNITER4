@@ -62,6 +62,8 @@ class UserModel extends Model
             $limit = $param['limit'];
             $sql .= " LIMIT $offset , $limit";
         }
+        // echo $sql;
+        // return;
         $query = $this->db->query($sql);
         return $query->getResult();
     }

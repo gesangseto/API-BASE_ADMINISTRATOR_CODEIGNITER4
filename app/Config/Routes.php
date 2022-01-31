@@ -49,6 +49,10 @@ $routes->setAutoRoute(true);
  * You will have access to the $routes object within that file without
  * needing to reload it.
  */
+
+
+
+$routes->add('/login', 'Login::index');
 $routes->group('api', function ($routes) {
     $routes->get('user', 'API\User::index');
     $routes->put('user', 'API\User::create');
