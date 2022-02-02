@@ -11,7 +11,11 @@ class Login extends BaseController
         $session = \Config\Services::session();
         if (!empty($_POST['user_email']) && !empty($_POST['user_password'])) {
             $model = new UserModel();
-            $get_data = $model->get_data($_POST);
+            $temp = $_POST;
+            // $temp['user_password'] = hash_hmac('sha256', $_POST['user_password'], 'Initial-G');
+            // print_r($temp);
+            // return;
+            $get_data = $model->get_data($temp);
             if (count($get_data) != 1) {
                 $session->setFlashdata("error", "Email or Password does not exists");
                 $session->setFlashdata($_POST);
